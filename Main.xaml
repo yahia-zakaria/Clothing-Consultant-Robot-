@@ -37,6 +37,7 @@
       <x:String>UiPath.Platform.ObjectLibrary</x:String>
       <x:String>System.Security</x:String>
       <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -102,7 +103,7 @@
       <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main" sap:VirtualizedContainerService.HintSize="512,937" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main" sap:VirtualizedContainerService.HintSize="512,1536" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="CityName" />
     </Sequence.Variables>
@@ -118,28 +119,54 @@
         </OutArgument>
       </ui:InputDialog.Result>
     </ui:InputDialog>
-    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: Google" sap:VirtualizedContainerService.HintSize="450,570" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="4e31eb8e-b497-4439-b5ba-1f62bcbf1523" Version="V2">
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: Google" sap:VirtualizedContainerService.HintSize="450,1169" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="4e31eb8e-b497-4439-b5ba-1f62bcbf1523" Version="V2">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,330" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,929" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:String" Name="Temperature" />
+            </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'TEXTAREA APjFqb'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="354,243" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="4e31eb8e-b497-4439-b5ba-1f62bcbf1523" Version="V3">
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'TEXTAREA APjFqb'" EmptyFieldMode="MultiLine" sap:VirtualizedContainerService.HintSize="354,258" sap2010:WorkflowViewState.IdRef="NTypeInto_1" InteractionMode="Simulate" ScopeIdentifier="4e31eb8e-b497-4439-b5ba-1f62bcbf1523" Version="V3">
               <uix:NTypeInto.Target>
                 <uix:TargetAnchorable BrowserURL="https://www.google.com/" CvElementArea="27, 316, 581, 50" CvType="InputBox" DesignTimeRectangle="76, 330, 441, 27" DesignTimeScaleFactor="1" ElementType="InputBox" FullSelectorArgument="&lt;webctrl id='APjFqb' tag='TEXTAREA' /&gt;" FuzzySelectorArgument="&lt;webctrl id='APjFqb' tag='TEXTAREA' type='' class='gLFyf' aaname='Search' /&gt;" Guid="5abb279b-7680-4f57-81cc-2e0940d657a0" InformativeScreenshot="3e0b539f24ca199bb23e3bd8109e34b1.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Google' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V3" Visibility="Interactive" />
               </uix:NTypeInto.Target>
               <uix:NTypeInto.Text>
                 <InArgument x:TypeArguments="x:String">
-                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_2">"weather in " + CityName +" in fahrenheit"</CSharpValue>
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_3">"weather in " + CityName</CSharpValue>
                 </InArgument>
               </uix:NTypeInto.Text>
             </uix:NTypeInto>
+            <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="354,219" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_1" Shortcuts="[d(hk)][k(enter)][u(hk)]" Version="V3" />
+            <uix:NGetText DisplayName="Get Text '24'" sap:VirtualizedContainerService.HintSize="354,197" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="4e31eb8e-b497-4439-b5ba-1f62bcbf1523" Version="V3">
+              <uix:NGetText.Target>
+                <uix:TargetAnchorable BrowserURL="https://www.google.com/search?q=weather+in+Cairo&amp;sca_esv=17f72efe5b819f76&amp;sxsrf=ACQVn0_r6L5ieOn4jqyAF5sbSUTp14rj5A%3A1713689035461&amp;source=hp&amp;ei=y9EkZvT4GaeHkdUP76mRoA4&amp;iflsig=ANes7DEAAAAAZiTf21WgOdB-JI5iCIz3ZvUcjYY9FG2m&amp;ved=0ahUKEwi0itmR9dKFAxWnQ6QEHe9UBOQQ4dUDCBU&amp;uact=5&amp;oq=&amp;gs_lp=Egdnd3Mtd2l6IgBIAFAAWABwAHgAkAEAmAEAoAEAqgEAuAEDyAEAmAIAoAIAmAMAkgcAoAcA&amp;sclient=gws-wiz" CvTextArea="156, 496, 82, 57" CvType="AnyWordGroup" DesignTimeRectangle="158, 482, 81, 90" DesignTimeScaleFactor="1.5" ElementType="Text" FullSelectorArgument="&lt;webctrl id='wob_tm' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='wob_tm' tag='SPAN' type='' class='wob_t q8U8x' /&gt;" Guid="7f6293ea-f1b1-4eb8-b56a-a4551baaa125" InformativeScreenshot="c32d492d7dd31dd8f2ed1324acf41904.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='weather in Cairo - Google Search' /&gt;" SearchSteps="FuzzySelector, CV" Version="V3" Visibility="Interactive" />
+              </uix:NGetText.Target>
+              <uix:NGetText.TextString>
+                <OutArgument x:TypeArguments="x:String">
+                  <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_2">Temperature</CSharpReference>
+                </OutArgument>
+              </uix:NGetText.TextString>
+            </uix:NGetText>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="354,168" sap2010:WorkflowViewState.IdRef="LogMessage_1">
+              <ui:LogMessage.Level>
+                <InArgument x:TypeArguments="ui:LogLevel">
+                  <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_5">UiPath.Core.Activities.LogLevel.Info</CSharpValue>
+                </InArgument>
+              </ui:LogMessage.Level>
+              <ui:LogMessage.Message>
+                <InArgument x:TypeArguments="x:Object">
+                  <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_4">Temperature</CSharpValue>
+                </InArgument>
+              </ui:LogMessage.Message>
+            </ui:LogMessage>
           </Sequence>
         </ActivityAction>
       </uix:NApplicationCard.Body>
